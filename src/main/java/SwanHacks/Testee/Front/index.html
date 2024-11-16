@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Sender</title>
+    <script>
+        async function sendText() {
+            const text = document.getElementById("inputText").value;
+            const postData = {
+                action: "register tutor",
+                name: text
+            };
+
+            fetch('http://localhost:8080/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Response from backend:', data); // Should log "Data received"
+                })
+                .catch(error => console.error('Error:', error));
+
+
+
+        }
+
+
+        async function getReversed() {
+            const text = document.getElementById("inputText").value;
+            const postData = {
+                action: "reverse string",
+                str: text
+            };
+
+            const response = await fetch('http://localhost:8080/api/reverse', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+    
+            const data = await response.json();
+            
+            const element = document.getElementById("result");
+            console.log('response:', data)
+            console.log('result:',data.result )
+            
+
+            // Change the text content
+            element.textContent = await data.result;
+        }
+
+
+        async function getData() {
+
+            fetch('http://localhost:8080/api/data')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data from backend:', data); // Should log "Hello from Java!"
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+<h1>Send Text to Backend</h1>
+<input type="text" id="inputText" placeholder="Enter text here">
+<button onclick="sendText()">Send</button>
+<button onclick="getData()">Get data</button>
+<button onclick="getReversed()">Get reversed</button>
+<h1 id="result">temp</h1>
+</body>
+</html>
