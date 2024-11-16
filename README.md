@@ -1,18 +1,20 @@
 # Teeter
 
+## 1. Accounts
+- **General**
+  - Name  
+  - Location  
+  - Availability  
+- **Tutor Profile**
+  - Reviews  
+  - Classes willing to tutor  
+  - Rates  
+- **Student**
+  - (Details to be filled)
 
-1) Accounts
-   a) General
-     i) Name
-     ii) Location
-     iii) Availability
-   a) Tutor Profile
-     i) Reviews
-     ii) Classes willing to tutor
-     iii) Rates
-   b) Student
-     i)
-3) Functionality
-   a) Search
-     i) Need time frame, class, rates
-   b) Chat
+## 2. Functionality
+- **Search**
+  - Need time frame  
+  - Class  
+  - Rates  
+- **Chat**
