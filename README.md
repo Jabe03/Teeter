@@ -1,4 +1,4 @@
-# Teeter *
+# Teeter 
 
 ## 1. Accounts
 - **General**
