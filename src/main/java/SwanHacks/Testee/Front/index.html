@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Sender</title>
+    <script>
+        async function sendText() {
+            const text = document.getElementById("inputText").value;
+            try {
+                // Send a POST request with the text to the backend
+                const response = await fetch("http://localhost:8080/api/print", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain" // Specify that we're sending plain text
+                    },
+                    body: text // Send the plain text as the body of the request
+                });
+
+                if (response.ok) {
+                    alert("Text sent successfully!");
+                } else {
+                    alert("Failed to send text.");
+                }
+            } catch (error) {
+                console.error("Error sending text:", error);
+                alert("An error occurred while sending text.");
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Send Text to Backend</h1>
+<input type="text" id="inputText" placeholder="Enter text here">
+<button onclick="sendText()">Send</button>
+</body>
+</html>
