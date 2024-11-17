@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Sender</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Find a Tutor</title>
     <script>
         async function sendText() {
             const text = document.getElementById("inputText").value;
@@ -29,35 +30,6 @@
 
         }
 
-         async function getTutorProfile() {
-            const text = document.getElementById("inputText").value;
-            const postData = {
-                tutor_id: text
-            };
-             //currently, no matter what you make tutor_id, it will send you the sample profile,
-             //this can be easily change on the backend, just focus on styling the profile correctly
-            const response = await fetch('http://localhost:8080/api/getTutorProfile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(postData)
-            });
-
-
-            //data will contain the json for sample_profile
-            const data = await response.json();
-
-
-            //long way to extract and display the text
-            const courses = data.courses
-            element = document.getElementById("classes")
-            element.textContent = courses;
-
-            //does the same thing but in one line
-            document.getElementById("bio").textContent = data.bio
-        }
-
 
         async function getReversed() {
             const text = document.getElementById("inputText").value;
@@ -73,13 +45,13 @@
                 },
                 body: JSON.stringify(postData)
             });
-    
+
             const data = await response.json();
-            
+
             const element = document.getElementById("result");
             console.log('response:', data)
             console.log('result:',data.result )
-            
+
 
             // Change the text content
             element.textContent = await data.result;
@@ -88,20 +60,33 @@
 
         async function getData() {
 
-            const response  = await fetch('http://10.50.5.130:8080/api/data')
+            fetch('http://localhost:8080/api/data')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data from backend:', data); // Should log "Hello from Java!"
+            })
             .catch(error => console.error('Error:', error));
-            const data = await response.json();
-            console.log("response: ", data.msg)
         }
     </script>
 </head>
 <body>
-<h1>Send Text to Backend</h1>
-<input type="text" id="inputText" placeholder="Enter text here">
-<button onclick="sendText()">Send</button>
-<button onclick="getData()">Get data</button>
-<button onclick="getTutorProfile()">getTutorBio</button>
-<h1 id="classes">Classes will go here</h1>
-<h1 id = "bio">Bio will go here</h1>
+<div class="container">
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="become-a-tutor.html">Become a Tutor</a></li>
+            <li><a href="sign-in.html">Sign In for Tutors</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="content">
+        <h1>Welcome to Tutee! An online platform that makes finding a tutor accessible</h1>
+        <br><br>
+        <img class=".tutor-image" src="/home/nancy/git/Teeter/src/main/images/tutoringPic.png">
+        <br><br>
+        <button onclick="window.location.href='find-a-tutor.html'">Find a Tutor!</button>
+    </div>
+</div>
 </body>
 </html>
