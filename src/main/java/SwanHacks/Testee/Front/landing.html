@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Text Sender</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Find a Tutor</title>
     <script>
         async function sendText() {
             const text = document.getElementById("inputText").value;
@@ -45,13 +45,13 @@
                 },
                 body: JSON.stringify(postData)
             });
-    
+
             const data = await response.json();
-            
+
             const element = document.getElementById("result");
             console.log('response:', data)
             console.log('result:',data.result )
-            
+
 
             // Change the text content
             element.textContent = await data.result;
@@ -70,13 +70,17 @@
     </script>
 </head>
 <body>
-   <div class="container">
-    <h1>Send Text to Backend</h1>
-    <input type="text" id="inputText" placeholder="Enter text here">
-    <button onclick="sendText()">Send</button>
-    <button onclick="getData()">Get data</button>
-    <button onclick="getReversed()">Get reversed</button>
-    <h1 id="result">temp</h1>
-   </div>
+<div class="container">
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="become-a-tutor.html">Become a Tutor</a></li>
+            <li><a href="sign-in.html">Sign In for Tutors</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <button onclick="window.location.href='find-a-tutor.html'">Find a Tutor!</button>
+    </div>
+</div>
 </body>
 </html>
