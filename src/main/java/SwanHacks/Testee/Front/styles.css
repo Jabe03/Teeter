@@ -8,12 +8,23 @@ body, html {
 
 /* Background styling */
 body {
-    background-color: #F0EAD6; /* Light green background */
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     min-height: 100vh;
+}
+
+/* Styling the image */
+.tutor-image {
+    object-fit: cover;
+    max-width: 100%; /* Ensures image fits within the container */
+    height: auto; /* Maintains aspect ratio */
+    margin-bottom: 20px; /* Adds space between the image and the button */
+    border-radius: 50%; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow */
+
 }
 
 /* Navbar Styling */
@@ -77,6 +88,7 @@ body {
     cursor: pointer; /* Pointer cursor on hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
     transition: transform 0.2s, box-shadow 0.2s; /* Add smooth hover effect */
+
 }
 
 /* Hover effect */
