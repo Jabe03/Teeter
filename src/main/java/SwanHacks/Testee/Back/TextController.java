@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
+
 
 @RestController
 @RequestMapping("/api")
@@ -37,8 +39,16 @@ public class TextController {
 
     }
 
-    @PostMapping("/getTutorBio")
+    @PostMapping("/getTutorProfile")
     public ResponseEntity<String> handleTutorBioRequest(@RequestBody String data){
-        return null;
+        //ignore data for now... it is supposed to be the tutor ID
+
+        try {
+            BufferedReader r = new BufferedReader(new FileReader("./profiles/sample_profile.json"));
+            return ResponseEntity.ok(r.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return (ResponseEntity<String>) ResponseEntity.badRequest();
+        }
     }
 }

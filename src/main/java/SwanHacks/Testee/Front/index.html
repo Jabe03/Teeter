@@ -29,6 +29,35 @@
 
         }
 
+         async function getTutorProfile() {
+            const text = document.getElementById("inputText").value;
+            const postData = {
+                tutor_id: text
+            };
+             //currently, no matter what you make tutor_id, it will send you the sample profile,
+             //this can be easily change on the backend, just focus on styling the profile correctly
+            const response = await fetch('http://localhost:8080/api/getTutorProfile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+
+
+            //data will contain the json for sample_profile
+            const data = await response.json();
+
+
+            //long way to extract and display the text
+            const courses = data.courses
+            element = document.getElementById("classes")
+            element.textContent = courses;
+
+            //does the same thing but in one line
+            document.getElementById("bio").textContent = data.bio
+        }
+
 
         async function getReversed() {
             const text = document.getElementById("inputText").value;
@@ -59,7 +88,7 @@
 
         async function getData() {
 
-            const response  = await fetch('http://localhost:8080/api/data')
+            const response  = await fetch('http://10.50.5.130:8080/api/data')
             .catch(error => console.error('Error:', error));
             const data = await response.json();
             console.log("response: ", data.msg)
@@ -71,7 +100,8 @@
 <input type="text" id="inputText" placeholder="Enter text here">
 <button onclick="sendText()">Send</button>
 <button onclick="getData()">Get data</button>
-<button onclick="getReversed()">Get reversed</button>
-<h1 id="result">temp</h1>
+<button onclick="getTutorProfile()">getTutorBio</button>
+<h1 id="classes">Classes will go here</h1>
+<h1 id = "bio">Bio will go here</h1>
 </body>
 </html>
