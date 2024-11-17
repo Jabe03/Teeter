@@ -22,12 +22,9 @@ public class Server {
 
         //Map<String, Account> f = AccountRegistry.readAccounts(true);
         //System.out.println(f);
-        try {
-            BufferedReader r = new BufferedReader(new FileReader("./profiles/sample_profile.json"));
-            System.out.println( ResponseEntity.ok(r.readLine()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        AccountRegistry.registerAccount(new Account("Joshua Bergthold", "jbergthold@uiowa.edu", "joshua123"));
+        Account a = AccountRegistry.signIn("jbergthold@uiowa.edu", "joshua123");
+        System.out.println(a);
     }
 
     private static void initializeServer(){

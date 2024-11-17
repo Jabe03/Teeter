@@ -3,6 +3,10 @@ package SwanHacks.Testee.Back.Server;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
@@ -11,6 +15,7 @@ public class Account {
     Name username;
     String email;
     byte[] passkey;
+
 
     /**
      *
@@ -26,7 +31,15 @@ public class Account {
             return null;
         }
     }
-
+    public String getProfileJSON(){
+        try {
+            BufferedReader r = new BufferedReader(new FileReader("./profiles/sample_profile.json"));
+            return r.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public Account(String name, String email, String passkey){
         this.username = new Name(name);
         this.email = email;

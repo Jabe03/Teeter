@@ -1,5 +1,7 @@
 package SwanHacks.Testee.Back;
 
+import SwanHacks.Testee.Back.Server.Account;
+import SwanHacks.Testee.Back.Server.AccountRegistry;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
@@ -51,4 +53,35 @@ public class TextController {
             return (ResponseEntity<String>) ResponseEntity.badRequest();
         }
     }
+
+    @PostMapping("/getTutorsForCoursesInArea")
+    public ResponseEntity<String> giveTutorList(@RequestBody String data){
+        return null;
+    }
+
+    @PostMapping("/sign-in")
+    public ResponseEntity<String> requestSignIn(@RequestBody String data){
+        JSONObject json = readJSON(data);
+
+        assert json != null;
+        try {
+            String email = (String)json.get("email");
+            String password = (String)json.get("password");
+            Account a = AccountRegistry.signIn(email, password);
+            return ResponseEntity.ok(a.getProfileJSON());
+        } catch (JSONException e) {
+            return ResponseEntity.ok("{\"code\":\"0\"}");
+        }
+
+    }
+
+    public static JSONObject readJSON(String data){
+        try {
+            return new JSONObject(data);
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+
 }

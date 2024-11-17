@@ -8,6 +8,17 @@ public class AccountRegistry {
     private static Map<String, Account> accs;
     static File accountsPath = new File("./accounts/");
 
+
+    public static Account signIn(String email, String password){
+        String passkey = Account.byteArrToStr(password.getBytes());
+        for(Account a: readAccounts(true).values()){
+            System.out.println("Checking " + a);
+            if(Account.byteArrToStr(a.passkey).equals(passkey) && a.email.equals(email)){
+                return a;
+            }
+        }
+        return null;
+    }
     /**
      *
      * @return a map whose values contains all of the accounts registered with Teeter, keys are emails
@@ -52,6 +63,7 @@ public class AccountRegistry {
             return true;
 
         }
+        readAccounts(true);
         return false;
 
     }

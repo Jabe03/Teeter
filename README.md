@@ -34,4 +34,4 @@ of the file. I wrote some comments and a couple sample json entries for the
 sample_profile.json file. 
 
 To run the code, run MainApplication.java and wait for it to says the server has 
-started in  x seconds, then you can press the buttons on the html file
+started in x seconds, then you can press the buttons on the html file

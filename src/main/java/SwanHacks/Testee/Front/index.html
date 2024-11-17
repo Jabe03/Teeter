@@ -34,6 +34,10 @@
             const postData = {
                 tutor_id: text
             };
+            const postData = {
+                location: text,
+                course: text
+            };
              //currently, no matter what you make tutor_id, it will send you the sample profile,
              //this can be easily change on the backend, just focus on styling the profile correctly
             const response = await fetch('http://localhost:8080/api/getTutorProfile', {
