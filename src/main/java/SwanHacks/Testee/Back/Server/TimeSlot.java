@@ -1,13 +1,14 @@
-import java.lang.reflect.Array;
+package SwanHacks.Testee.Back.Server;
+
 import java.util.Arrays;
 
-public class Availability implements Comparable<Availability>{
+public class TimeSlot implements Comparable<TimeSlot>{
 
     private static String[] DAYS = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     private int day;
     private Time startTime;
     private Time endTime;
-    public Availability( int day, Time startTime, Time endTime) {
+    public TimeSlot(int day, Time startTime, Time endTime) {
         this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -21,7 +22,7 @@ public class Availability implements Comparable<Availability>{
     }
 
     @Override
-    public int compareTo(Availability o) {
+    public int compareTo(TimeSlot o) {
         if (day != o.getDay()) {
             return Integer.compare(this.day, o.day);
         } else {
@@ -34,11 +35,11 @@ public class Availability implements Comparable<Availability>{
     }
 
     public static void main(String[] args) {
-        Availability one = new Availability(0, new Time(5,30), new Time(8, 0));
-        Availability two = new Availability(3, new Time(5,30), new Time(8, 0));
-        Availability three = new Availability(1, new Time(5,30), new Time(8, 0));
-        Availability four = new Availability(0, new Time(4,30), new Time(8, 0));
-        Availability[] avails = {one, two, three, four};
+        TimeSlot one = new TimeSlot(0, new Time(5,30), new Time(8, 0));
+        TimeSlot two = new TimeSlot(3, new Time(5,30), new Time(8, 0));
+        TimeSlot three = new TimeSlot(1, new Time(5,30), new Time(8, 0));
+        TimeSlot four = new TimeSlot(0, new Time(4,30), new Time(8, 0));
+        TimeSlot[] avails = {one, two, three, four};
         Arrays.sort(avails);
         System.out.println(Arrays.toString(avails));
     }

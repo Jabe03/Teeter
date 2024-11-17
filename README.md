@@ -4,12 +4,12 @@
 - **General**
   - Name  
   - Location  
-  - Availability  
-- **Tutor Profile**
+  - SwanHacks.Testee.Back.Server.TimeSlot  
+- **SwanHacks.Testee.Back.Server.TutorProfile Profile**
   - Reviews  
   - Classes willing to tutor  
   - Rates  
-- **Student**
+- **SwanHacks.Testee.Back.Server.StudentProfile**
   - (Details to be filled)
 
 ## 2. Functionality

@@ -36,4 +36,9 @@ public class TextController {
         }
 
     }
+
+    @PostMapping("/getTutorBio")
+    public ResponseEntity<String> handleTutorBioRequest(@RequestBody String data){
+        return null;
+    }
 }

@@ -1,5 +1,6 @@
+package SwanHacks.Testee.Back.Server;
 
-public class Tutor extends User{
+public class TutorProfile extends Profile {
     private String title; // Major in/
     private Float rate;
     private Float rating;
@@ -7,7 +8,7 @@ public class Tutor extends User{
 
     boolean active = false; // whether tutor is available for office hours
 
-    public Tutor(String name, String[] courses, String location, Availability[] availability, String bio, String title, Float rate) {
+    public TutorProfile(String name, String[] courses, String location, TimeSlot[] availability, String bio, String title, Float rate) {
         super(name, courses, location, availability, bio);
         rating = null;
         numOfRatings = 0;

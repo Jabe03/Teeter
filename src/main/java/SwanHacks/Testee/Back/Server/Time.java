@@ -1,3 +1,5 @@
+package SwanHacks.Testee.Back.Server;
+
 public class Time implements Comparable<Time> {
     private Integer hour;
     private Integer minute;
