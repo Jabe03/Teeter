@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="address.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+    <script>
+        async function getTutorProfile() {
+            const button = document.getElementById("courseLocationSubmit").value;
+
+            const formData = getElementById('locCourseSearch');
+            const postData = {
+                location: text
+                user:
+            };
+            //currently, no matter what you make tutor_id, it will send you the sample profile,
+            //this can be easily change on the backend, just focus on styling the profile correctly
+            const response = await fetch('http://localhost:8080/api/getTutorProfile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+
+
+            //data will contain the json for sample_profile
+            const data = await response.json();
+
+
+            //long way to extract and display the text
+            const courses = data.courses
+            element = document.getElementById("classes")
+            element.textContent = courses;
+
+            //does the same thing but in one line
+            document.getElementById("bio").textContent = data.bio
+        }
+    </script>
+</head>
+
+<body>
+<form id="locCourseSearch">
+    Location: <input type="text" name="Location">
+    Course: <input type="text" name="Course">
+    <script type="text/javascript">
+    </script>
+</form>
+    <button id= "courseLocationSubmit" onclick="window.location.href='show-tutors-by-search.html'">Find a Tutor!</button>
+</body>
+    <script src="s.js"></script>
+</html>
