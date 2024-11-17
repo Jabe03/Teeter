@@ -8,7 +8,7 @@ body, html {
 
 /* Background styling */
 body {
-    background-color: #d5f5d1; /* Light green background */
+    background-color: #F0EAD6; /* Light green background */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,18 +65,24 @@ body {
     padding-top: 60px; /* Adjust for navbar height if necessary */
 }
 
+/* styles.css */
+
 .content button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    font-size: 1.5rem; /* Larger text */
+    padding: 50px 100px; /* Add more padding */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #28a745; /* Stylish green background */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.2s, box-shadow 0.2s; /* Add smooth hover effect */
 }
 
+/* Hover effect */
 .content button:hover {
-    transform: scale(1.05);
-    background-color: #3e8e41;
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Intensify shadow on hover */
 }
+
+/* Center the button */
