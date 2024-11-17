@@ -12,7 +12,7 @@ public class TextController {
 
     @GetMapping("/data")
     public ResponseEntity<String> getData() {
-        return ResponseEntity.ok("Hello from Java!");
+        return ResponseEntity.ok("{\"msg\":\"Hello from Josh's computer!\"}");
     }
 
     @PostMapping("/submit")

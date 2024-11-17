@@ -59,12 +59,10 @@
 
         async function getData() {
 
-            fetch('http://localhost:8080/api/data')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Data from backend:', data); // Should log "Hello from Java!"
-            })
+            const response  = await fetch('http://localhost:8080/api/data')
             .catch(error => console.error('Error:', error));
+            const data = await response.json();
+            console.log("response: ", data.msg)
         }
     </script>
 </head>
